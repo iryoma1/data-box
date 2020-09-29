@@ -1,0 +1,384 @@
+
+
+/* form-wrapは商品購入画面でも使用しています */
+.form-wrap {
+  width: 50%;
+  background-color: white;
+  padding-bottom: 70px;
+
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 120px;
+  font-size: 22px;
+}
+
+.form-header-text {
+  line-height: 100px;
+  display: block;
+  justify-content: center;
+
+}
+
+.form-group {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+
+.form-group:first-child {
+  padding: 0;
+}
+
+.form-text-wrap {
+  width: 100%;
+  height: 20%;
+}
+
+.form-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.input-default {
+  width: 100%;
+  margin-top: 5px;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+}
+
+.info-text {
+  color: #888;
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.form-info-header {
+  font-weight: bold;
+}
+
+.form-info-text {
+  font-size: 15px;
+}
+
+.input-name-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.input-name {
+  width: 130px;
+  margin: 5px 20px 0 20px;
+  height: 48px;
+  line-height: 30px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 14px;
+  resize: none;
+}
+
+.input-birth-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-birth-wrap>select {
+  width: 75px;
+  margin-top: 5px;
+  height: 45px;
+  padding-left: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.input-birth-wrap>p {
+  line-height: 60px;
+  padding: 0 5px;
+}
+
+.form-bottom-text {
+  font-size: 15px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.form-bottom-text:last-child {
+  margin: 0;
+  padding-bottom: 50px;
+}
+
+.form-bottom-text>span {
+  color: #0099e8;
+  cursor: pointer;
+}
+
+.register-btn {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.register-red-btn {
+  width: 100%;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.register-info {
+  margin: 30px 180px 0 0;
+  color: #0099e8;
+  text-align: right;
+  cursor: pointer;
+}
+
+/*画面幅800px以下の設定
+------------------------------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width:800px){
+
+  /*inner共通
+  ---------------------------------------------------------------------------*/
+  .inner {
+    width: auto;
+  }
+  
+  /*ヘッダー（ロゴが入った最上段のブロック）
+  ---------------------------------------------------------------------------*/
+  /*ロゴ画像（※トップページ用の追加設定）*/
+  #top header #logo {
+    width: 300px;	/*ロゴ画像の幅*/
+  }
+  
+  /*メインメニュー（※トップページ以外）
+  ---------------------------------------------------------------------------*/
+  /*小さな端末用メニューを非表示から表示に切り替える*/
+  #menubar-s {
+    display: block;
+    clear: left;
+    border-top: 1px solid #999;	/*上の線の幅、線種、色*/
+  }
+  /*メニュー１個あたりの設定*/
+  #menubar-s li {
+    float: left;	/*左に回り込み*/
+    width: 50%;		/*メニュー幅*/
+  }
+  #menubar-s li a {
+    display: block;
+    text-decoration: none;
+    text-align: center;	/*文字をセンタリング*/
+    padding: 15px 0;	/*上下、左右へのメニュー内の余白*/
+    border-bottom: 1px solid #999;	/*下線の幅、線種、色*/
+    border-right: 1px solid #999;	/*右線の幅、線種、色*/
+  }
+  /*偶数番目のメニューの右側の線を消す*/
+  #menubar-s li:nth-child(even) a {
+    border-right: none;
+  }
+  
+  /*トップページ以外で使っている大きな端末用用メニューを非表示にする
+  ---------------------------------------------------------------------------*/
+  #menubar {
+    display: none;
+  }
+  
+  /*トップページのメニューブロック
+  ---------------------------------------------------------------------------*/
+  #menubar-top {
+    width: 300px;	/*ブロック幅。ロゴの幅と合わせるといい。*/
+  }
+  /*トップページの英語表記*/
+  #menubar-top span {
+    font-size: 26px;	/*文字サイズ*/
+  }
+  
+  /*３本バーアイコン設定
+  ---------------------------------------------------------------------------*/
+  /*３本バーブロック*/
+  #menubar_hdr {
+    display: block;
+    position: absolute;
+    top: 28px;		/*上から28pxの場所に配置*/
+    right: 2%;		/*右から2%の場所に配置*/
+    width: 30px;	/*幅*/
+    border: 1px solid #999;	/*枠線の幅、線種、色*/
+    padding: 12px 10px 5px;	/*上、左右、下へのボックス内余白*/
+  }
+  /*３本のバー（1本あたり）*/
+  #menubar_hdr span {
+    display: block;
+    border-top: 3px solid #999;	/*枠線の幅、線種、色*/
+    margin-bottom: 7px;			/*バー同士の余白*/
+  }
+  #top #menubar_hdr {
+    display: none;
+  }
+  
+  /*main,subコンテンツ
+  ---------------------------------------------------------------------------*/
+  .main, .sub {
+    float: none;
+    width: auto;
+  }
+  
+  /*subコンテンツ内のメニュー
+  ---------------------------------------------------------------------------*/
+  /*メニュー１個ごとの設定*/
+  .sub ul.submenu li {
+    width: 50%;		/*半分の幅にする*/
+    float: left;	/*左に回り込み*/
+  }
+  /*偶数番目のメニューの左のラインを消す設定*/
+  .sub ul.submenu li:nth-child(even) a {
+    border-left: none;
+  }
+  
+  /*トップページ内「更新情報・お知らせ」ブロック
+  ---------------------------------------------------------------------------*/
+  /*アイコン*/
+  section#new h2::before {
+    float: right;	/*右に回り込み*/
+    margin-top: 4px;
+    font-size: 18px;	/*文字サイズ*/
+    background: #fff;	/*背景色*/
+    color: #000;
+    border-radius: 50%;	/*角丸のサイズ*/
+    width: 30px;		/*幅*/
+    line-height: 30px;	/*高さ*/
+    text-align: center;	/*文字をセンタリング*/
+    border: 1px solid #dcdcdc;	/*枠線の幅、線種、色*/
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.1) inset;	/*内側への影*/
+  }
+  /*プラスアイコンの文字*/
+  section#new h2.close::before {
+      content: "＋";
+  }
+  /*マイナスアイコンの文字*/
+  section#new h2.open::before {
+      content: "−";
+  }
+  
+  /*その他
+  ---------------------------------------------------------------------------*/
+  body.s-n .sub,body.s-n #footermenu,.m-n {display: none;}
+  .fl-half{float:left;width:45%;margin-left:3%;}
+  .sh {display:block;}
+  .pc {display:none;}
+  
+  }
+  
+  
+  
+  /*画面幅480px以下の設定
+  ------------------------------------------------------------------------------------------------------------------------------------------------------*/
+  @media screen and (max-width:480px){
+  
+  /*全体の設定
+  ---------------------------------------------------------------------------*/
+  body {
+    font-size: 12px;	/*文字サイズ*/
+    line-height: 1.5;	/*行間*/
+  }
+  
+  /*トップページのボックス。
+  ---------------------------------------------------------------------------*/
+  #topcontents {
+    min-height: auto;
+    background: none;
+  }
+  
+  /*ヘッダー（ロゴが入った最上段のブロック）
+  ---------------------------------------------------------------------------*/
+  /*ロゴ画像（※トップページ用の追加設定）*/
+  header #logo {
+    width: 100% !important;	/*ロゴ画像の幅*/
+  }
+  
+  /*トップページのメニューブロック
+  ---------------------------------------------------------------------------*/
+  #menubar-top {
+    width: auto;
+  }
+  
+  /*コンテンツ
+  ---------------------------------------------------------------------------*/
+  .contents {
+    padding: 20px 10px;	/*上下、左右に空けるボックス内の余白*/
+  }
+  /*コンテンツのh2タグの設定*/
+  .contents h2 {
+    font-size: 16px;	/*文字サイズ*/
+    padding: 5px 10px;	/*上下、左右への余白*/
+  }
+  /*コンテンツの段落タグ設定*/
+  .contents p {
+    padding: 0px 10px 15px;	/*上、左右、下への余白*/
+  }
+  
+  /*Serviceページの各ブロック
+  ---------------------------------------------------------------------------*/
+  /*各ボックスの設定*/
+  .list {
+    padding: 10px;
+  }
+  .list a {
+    padding: 10px;
+    margin: -10px;
+  }
+  /*ボックス内のh4タグ設定*/
+  .list h4 {
+    font-size: 16px;	/*文字サイズ*/
+  }
+  
+  /*subコンテンツ内のメニュー
+  ---------------------------------------------------------------------------*/
+  .sub ul.submenu li a {
+    padding: 10px;	/*メニュー内の余白*/
+  }
+  
+  /*フッターメニュー
+  ---------------------------------------------------------------------------*/
+  /*ボックス全体*/
+  #footermenu {
+    display: none;
+  }
+  
+  /*テーブル
+  ---------------------------------------------------------------------------*/
+  /*テーブル内の左側*/
+  .ta1 th {
+    width: 100px;
+    padding: 5px;
+  }
+  /*テーブル内の右側*/
+  .ta1 td {
+    width: auto;
+    padding: 5px;
+  }
+  
+  /*その他
+  ---------------------------------------------------------------------------*/
+  .ws,.wl {width: 94%;}
+  img.fr,img.fl {float: none;margin: 0;width: 100%;}
+  .fl-half{float:none;width:100%;margin-left:0;}
+  
+  }
+  
