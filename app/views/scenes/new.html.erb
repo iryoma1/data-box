@@ -52,49 +52,56 @@
 <div class="inner">
 
 <section>
-<%= current_user.name %>
-<h2>My Page<span>マイページ</span></h2>
+
+<h2>画像共有ページ</h2>
 
 <div class="list">
-<figure><%= image_tag("sample1.jpg") %></figure>
-<h4>企業検索</h4>
-<p>画像を送りたい企業名を検索できます。</p>
-<%= form_with(url: search_user_index_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "企業名を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
+<h4>共有先</h4>
+<p>現場情報の入力</p>
+  <%= form_with model: @scene, local: true do |f| %>
+   <div class="img-upload">
+      <div class="weight-bold-text">
+        現場画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+
+    <div class="new-items">
+      <div class="weight-bold-text">
+          現場名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"現場名" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+            送信者名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :user_name, class:"items-text", id:"item-info", placeholder:"送信者の名前"  %>
+      </div>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+            メッセージ
+        </div>
+        
+        <%= f.text_area :comment, class:"items-text", id:"item-info", placeholder:"メッセージが必要であれば入力して下さい。"  %>
+      </div>
+    </div>
+    <div class="sell-btn-contents">
+      <%= f.submit "送信する" ,class:"sell-btn" %>
+    </div>
+  <% end %>
+
+
 </div>
 
-<div class="list">
-<figure><%= image_tag("sample1.jpg") %></figure>
-<h4>検索結果</h4>
-<% if @search_users %>  
-  <ul class="media-list">  
-    <% @search_users.where.not(id: current_user.id).each do |user| %>
-		<%= link_to new_scene_path(user.id),method: :get do %>
-      <li class="media">  
-        <%= user.name %> 
-      </li>  
-      <% end %>
-    <% end %>  
-  </ul>
-<% end %> 
-</div>
-
-<%# <div class="list">
-<a href="service2.html">
-<figure><img src="images/noimg.png" alt=""></figure>
-<h4>Sample Title</h4>
-<p>リンクが貼ってあると右下に「→」のマークが出ます。</p>
-</a>
-</div>
-
-<div class="list">
-<figure><img src="images/noimg.png" alt=""></figure>
-<h4>Sample Title</h4>
-<p>こちらはリンクを貼っていないタイプです。マークは出ません。</p>
-</div>
-</section> %>
+</section>
 
 </div>
 <!--/inner-->

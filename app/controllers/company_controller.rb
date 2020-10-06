@@ -7,6 +7,7 @@ class CompanyController < ApplicationController
   end
 
   def show
+    @user = User.all
   end
 
 
