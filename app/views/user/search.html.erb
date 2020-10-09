@@ -1,0 +1,125 @@
+<body>
+
+<div class="inner">
+
+<header>
+<div class="inner">
+	<h1 id="logo"><%= link_to image_tag("logo.png"), "/" %></h1>
+</div>
+</header>
+
+<!--PC用（801px以上端末）メニュー-->
+<nav id="menubar">
+				<ul class="inner">
+					<% if user_signed_in? %>
+						<li><%= link_to   "#" do%>
+							<span>my page</span>マイページ
+						<%end%></li>
+						<li><%= link_to destroy_user_session_path, method: :delete do%>
+							<span>log out</span>ログアウト
+						<%end%></li>
+					<% else %>
+						<li><%= link_to new_user_session_path do%>
+							<span>log in</span>ログイン
+						<%end%></li>
+						<li><%= link_to new_user_registration_path do%>
+							<span>sign up</span>新規登録
+						<%end%></li>
+						<li><%= link_to "#" do%>
+							<span>service</span>サービス案内
+						<%end%></li>
+					<% end %>
+				</ul>
+</nav>
+<!--小さな端末用（800px以下端末）メニュー-->
+<nav id="menubar-s">
+	<ul class="inner">
+					<% if user_signed_in? %>
+						<li><%= link_to "サービス案内", "#" %></li>
+						<li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+					<% else %>
+						<li><%= link_to "ログイン", new_user_session_path %></li>
+						<li><%= link_to "新規登録", new_user_registration_path %></li>
+						<li><%= link_to "サービス案内", "#" %></li>
+					<% end %>
+				</ul>
+</nav>
+
+</div>
+<!--/inner-->
+
+<div class="contents">
+<div class="inner">
+
+<section>
+<div class = "user_name">
+<%= current_user.name %>
+</div>
+<h2>My Page<span>マイページ</span></h2>
+
+<div class="list">
+<figure><%= image_tag("sample1.jpg") %></figure>
+<h4>会社検索</h4>
+<p>画像を送りたい会社名を検索できます。</p>
+<%= form_with(url: search_user_index_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "企業名を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+</div>
+
+<div class="list">
+<figure><%= image_tag("sample2.jpg") %></figure>
+<h4>検索結果</h4>
+<% if @search_users %>  
+  <ul class="media-list">  
+    <% @search_users.where.not(id: current_user.id).each do |user| %>
+		<%= link_to new_scene_path(user.id),method: :get do %>
+      <li class="media">  
+        <%= user.name %> 
+      </li>  
+      <% end %>
+    <% end %>  
+  </ul>
+<% end %> 
+</div>
+
+<%# <div class="list">
+<a href="service2.html">
+<figure><img src="images/noimg.png" alt=""></figure>
+<h4>Sample Title</h4>
+<p>リンクが貼ってあると右下に「→」のマークが出ます。</p>
+</a>
+</div>
+
+<div class="list">
+<figure><img src="images/noimg.png" alt=""></figure>
+<h4>Sample Title</h4>
+<p>こちらはリンクを貼っていないタイプです。マークは出ません。</p>
+</div>
+</section> %>
+
+</div>
+<!--/inner-->
+</div>
+
+
+
+
+
+
+
+
+<!--スマホ用更新情報　800px以下-->
+<script type="text/javascript">
+if (OCwindowWidth() <= 800) {
+	open_close("newinfo_hdr", "newinfo");
+}
+</script>
+
+<!--メニューの開閉処理条件設定　800px以下-->
+<script type="text/javascript">
+if (OCwindowWidth() <= 800) {
+	open_close("menubar_hdr", "menubar-s");
+}
+</script>
+</body>

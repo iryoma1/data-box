@@ -13,4 +13,19 @@ class User < ApplicationRecord
     validates :email, format: { with: EMAIL_REGEX }, uniqueness: { case_sensitive: false }
     validates :password, format: { with: PASSWORD_REGEX }
   end
+
+  # def self.search(search)
+  #   if search != ""
+  #     User.where('text LIKE(?)', "%#{search}%")
+  #   else
+  #     User.name
+  #   end
+  # end
+  def self.search(search)   
+    if search  
+      User.where(['name LIKE ?', "%#{search}%"])   
+    else  
+      User.all  
+    end  
+end  
 end

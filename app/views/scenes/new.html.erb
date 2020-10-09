@@ -1,0 +1,132 @@
+<body>
+
+<div class="inner">
+
+<header>
+<div class="inner">
+	<h1 id="logo"><%= link_to image_tag("logo.png"), "/" %></h1>
+</div>
+</header>
+
+<!--PC用（801px以上端末）メニュー-->
+<nav id="menubar">
+				<ul class="inner">
+					<% if user_signed_in? %>
+						<li><%= link_to   "#" do%>
+							<span>my page</span>マイページ
+						<%end%></li>
+						<li><%= link_to destroy_user_session_path, method: :delete do%>
+							<span>log out</span>ログアウト
+						<%end%></li>
+					<% else %>
+						<li><%= link_to new_user_session_path do%>
+							<span>log in</span>ログイン
+						<%end%></li>
+						<li><%= link_to new_user_registration_path do%>
+							<span>sign up</span>新規登録
+						<%end%></li>
+						<li><%= link_to "#" do%>
+							<span>service</span>サービス案内
+						<%end%></li>
+					<% end %>
+				</ul>
+</nav>
+<!--小さな端末用（800px以下端末）メニュー-->
+<nav id="menubar-s">
+	<ul class="inner">
+					<% if user_signed_in? %>
+						<li><%= link_to "サービス案内", "#" %></li>
+						<li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+					<% else %>
+						<li><%= link_to "ログイン", new_user_session_path %></li>
+						<li><%= link_to "新規登録", new_user_registration_path %></li>
+						<li><%= link_to "サービス案内", "#" %></li>
+					<% end %>
+				</ul>
+</nav>
+
+</div>
+<!--/inner-->
+
+<div class="contents">
+<div class="inner">
+
+<section>
+
+<h2>現場情報の入力</h2>
+
+<div class="list">
+<%# <h4>共有先</h4> %>
+
+
+
+  <%= form_with model: @scene, local: true do |f| %>
+   <div class="img-upload">
+      <div class="weight-bold-text">
+        現場画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+
+    <div class="new-items">
+      <div class="weight-bold-text">
+          現場名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"現場名" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+            送信者名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :user_name, class:"items-text", id:"item-info", placeholder:"送信者の名前"  %>
+      </div>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+            メッセージ
+        </div>
+        
+        <%= f.text_area :comment, class:"items-text", id:"item-info", placeholder:"メッセージが必要であれば入力して下さい。"  %>
+      </div>
+    </div>
+    <div class="sell-btn-contents">
+      <%= f.submit "送信する" ,class:"sell-btn" %>
+    </div>
+  <% end %>
+
+
+</div>
+
+</section>
+
+</div>
+<!--/inner-->
+</div>
+
+
+
+
+
+
+
+
+<!--スマホ用更新情報　800px以下-->
+<script type="text/javascript">
+if (OCwindowWidth() <= 800) {
+	open_close("newinfo_hdr", "newinfo");
+}
+</script>
+
+<!--メニューの開閉処理条件設定　800px以下-->
+<script type="text/javascript">
+if (OCwindowWidth() <= 800) {
+	open_close("menubar_hdr", "menubar-s");
+}
+</script>
+</body>

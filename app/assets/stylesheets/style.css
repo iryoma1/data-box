@@ -31,6 +31,7 @@ img {border: none;max-width: 100%;height: auto;vertical-align: middle;}
 table {border-collapse:collapse;font-size: 100%;border-spacing: 0;}
 iframe {width: 100%;}
 
+
 /*リンク（全般）設定
 ---------------------------------------------------------------------------*/
 a {
@@ -235,6 +236,11 @@ header #logo {
 	width: 72%;		/*幅*/
 }
 
+.user_name{
+	text-align: center;
+	font-size: 35px;
+}
+
 /*Serviceページの各ブロック
 ---------------------------------------------------------------------------*/
 /*各ボックスの設定*/
@@ -256,21 +262,7 @@ header #logo {
 	background: #eee;	/*背景色*/
 	color: #000;			/*文字色*/
 }
-/*リンクを貼った際に出る「→」マーク*/
-.list a::before {
-	content: "→";	/*出力する文字。変更しても構いませんが機種依存文字は化けるので使わないで下さい。*/
-	font-size: 12px;	/*文字サイズ*/
-	display: block;
-	position: absolute;
-	right: 10px;	/*ボックスの右から10pxの場所に配置*/
-	bottom: 20px;	/*ボックスの下から20pxの場所に配置*/
-	width: 30px;	/*幅*/
-	line-height: 30px;	/*高さ*/
-	text-align: center;
-	background: #333;	/*背景色（古いブラウザ用）*/
-	color: #fff;	/*文字色*/
-	border-radius: 50%;	/*角丸のサイズ。50%にすると円になる。*/
-}
+
 /*ボックス内のh4タグ設定*/
 .list h4 {
 	font-size: 20px;	/*文字サイズ*/
@@ -589,6 +581,10 @@ body.s-n .sub,body.s-n #footermenu,.m-n {display: none;}
 
 }
 
+.user_name {
+	text-align: center;
+	font-size: 30px;
+}
 
 
 /*画面幅480px以下の設定
