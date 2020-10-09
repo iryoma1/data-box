@@ -1,5 +1,4 @@
-class CompanyController < ApplicationController
-
+class CompaniesController < ApplicationController
   def index
   end
 
@@ -8,8 +7,6 @@ class CompanyController < ApplicationController
 
   def show
     @user = User.all
+    @scene = Scene.all
   end
-
-
-
 end

@@ -1,3 +1,4 @@
+
 <body id="top">
 
 	<div id="topcontents">
@@ -13,7 +14,7 @@
 				<ul class="inner">
 					<% if user_signed_in? %>
 
-						<li><%= link_to  "company/show" do%>
+						<li><%= link_to  "companies/show" do%>
 							<span>my page</span>マイページ
 						<%end%></li>
 						<li><%= link_to destroy_user_session_path, method: :delete do%>
@@ -26,7 +27,7 @@
 						<li><%= link_to new_user_registration_path do%>
 							<span>sign up</span>新規登録
 						<%end%></li>
-						<li><%= link_to "company/show" do%>
+						<li><%= link_to "companies/show" do%>
 							<span>service</span>サービス案内
 						<%end%></li>
 					<% end %>
@@ -53,4 +54,3 @@
 	}
 	</script>
 </body>
-

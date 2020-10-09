@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2020_09_30_061310) do
   end
 
   create_table "scenes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.string "user_name", default: "", null: false
+    t.string "name", null: false
+    t.string "user_name", null: false
     t.bigint "user_id", null: false
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
