@@ -70,7 +70,7 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+          <%= f.file_field :image, multiple: true , id:"item-image"%>
       </div>
     </div>
 
@@ -91,7 +91,6 @@
         <div class="weight-bold-text">
             メッセージ
         </div>
-        
         <%= f.text_area :comment, class:"items-text", id:"item-info", placeholder:"メッセージが必要であれば入力して下さい。"  %>
       </div>
     </div>

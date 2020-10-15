@@ -16,9 +16,12 @@ class ScenesController < ApplicationController
       render :new
     end
   end
+  def show
+    @scene = Scene.find(params[:id])
+  end
 
   private
   def scene_params
-    params.require(:scene).permit(:name, :user_name, :comment, :image).merge(user_id: current_user.id)
+    params.require(:scene).permit(:name, :user_name, :comment, image: []).merge(user_id: current_user.id)
   end
 end

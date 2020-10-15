@@ -12,7 +12,7 @@
 <nav id="menubar">
 				<ul class="inner">
 					<% if user_signed_in? %>
-						<li><%= link_to   "#" do%>
+						<li><%= link_to company_path do%>
 							<span>my page</span>マイページ
 						<%end%></li>
 						<li><%= link_to destroy_user_session_path, method: :delete do%>
@@ -61,7 +61,9 @@
 <figure><%= image_tag("scene.png") %></figure>
 <h4>現場一覧</h4>
 <% @scene.each do |scene| %>
-<%= scene.name%>
+	<%= link_to scene_path(scene.id), method: :get do %>
+		<%= scene.name%>
+	<% end %>
 <% end %> 
 </div>
 

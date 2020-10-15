@@ -12,7 +12,7 @@
 <nav id="menubar">
 				<ul class="inner">
 					<% if user_signed_in? %>
-						<li><%= link_to   "#" do%>
+						<li><%= link_to company_path do%>
 							<span>my page</span>マイページ
 						<%end%></li>
 						<li><%= link_to destroy_user_session_path, method: :delete do%>
@@ -53,34 +53,27 @@
 
 <section>
 <div class = "user_name">
-<%= current_user.name %>
-</div>
-<h2>My Page<span>マイページ</span></h2>
+ <%= current_user.name %> 
+ </div>
+<h2>現場情報</h2>
 
 <div class="list">
-<figure><%= image_tag("sample2.jpg") %></figure>
-<h4>検索結果</h4>
-<% if @search_users %>  
-  <ul class="media-list">  
-    <% @search_users.where.not(id: current_user.id).each do |user| %>
-		<%= link_to new_scene_path(user.id),method: :get do %>
-      <li class="media">  
-        <%= user.name %> 
-      </li>  
+  <div class = "information">
+  <h4>作業会社<h4>
+    <%= @scene.user.name %>
+    <h4>現場名</h4>
+    <%= @scene.name %>
+    <h4>投稿者名</h4>
+    <%= @scene.user_name %>
+    <h4>コメント</h4>
+    <%= @scene.comment %>
+    <h4>写真</h4>
+    <div class = "image">
+      <% @scene.image.each do |image| %>
+        <%= image_tag image %>
       <% end %>
-    <% end %>  
-  </ul>
-<% end %> 
-</div>
-
-<div class="list">
-<figure><%= image_tag("sample1.jpg") %></figure>
-<h4>会社検索</h4>
-<p>画像を送りたい会社名を検索できます。</p>
-<%= form_with(url: search_user_index_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "企業名を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
+    </div>
+  </div>
 </div>
 
 
@@ -96,8 +89,8 @@
 <figure><img src="images/noimg.png" alt=""></figure>
 <h4>Sample Title</h4>
 <p>こちらはリンクを貼っていないタイプです。マークは出ません。</p>
-</div>
-</section> %>
+</div> %>
+</section>
 
 </div>
 <!--/inner-->
