@@ -12,7 +12,7 @@
 <nav id="menubar">
 				<ul class="inner">
 					<% if user_signed_in? %>
-						<li><%= link_to company_path do%>
+						<li><% link_to "#" do%>
 							<span>my page</span>マイページ
 						<%end%></li>
 						<li><%= link_to destroy_user_session_path, method: :delete do%>
@@ -52,10 +52,7 @@
 <div class="inner">
 
 <section>
-<div class = "user_name">
- <%= current_user.name %>
- </div>
-<h2>My Page<span>マイページ</span></h2>
+<h2><%= @user.name %></h2>
 
 <div class="list">
 <figure><%= image_tag("scene.png") %></figure>
@@ -64,17 +61,14 @@
 	<%= link_to scene_path(scene.id), method: :get do %>
 		<%= scene.name%>
 	<% end %>
-<% end %> 
+<% end  %>
 </div>
 
 <div class="list">
-<figure><%= image_tag("sample1.jpg") %></figure>
-<h4>企業検索</h4>
-<p>画像を送りたい会社名を検索できます。</p>
-<%= form_with(url: search_user_index_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "企業名を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
+	<figure><%= image_tag("camera.png") %></figure>
+	<h4><%= link_to "相手と画像を共有する", new_scene_path(@user.id) %> </h4>
+
+
 </div>
 
 <%# <div class="list">

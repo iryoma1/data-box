@@ -63,7 +63,7 @@
 <% if @search_users %>  
   <ul class="media-list">  
     <% @search_users.where.not(id: current_user.id).each do |user| %>
-		<%= link_to new_scene_path(user.id),method: :get do %>
+		<%= link_to user_index_path(user.id),method: :get do %>
       <li class="media">  
         <%= user.name %> 
       </li>  
@@ -76,7 +76,7 @@
 <div class="list">
 <figure><%= image_tag("sample1.jpg") %></figure>
 <h4>会社検索</h4>
-<p>画像を送りたい会社名を検索できます。</p>
+<p>画像を共有する会社名を検索できます。</p>
 <%= form_with(url: search_user_index_path, local: true, method: :get, class: "search-form") do |form| %>
   <%= form.text_field :keyword, placeholder: "企業名を検索する", class: "search-input" %>
   <%= form.submit "検索", class: "search-btn" %>

@@ -7,6 +7,7 @@
 
 ### Association
 - has_many :scenes
+- has_many :user_scene
 
 ## scenes
 
@@ -18,3 +19,16 @@
 | comment    | text       |                                |
 ### Association
 - has_one :user
+- has_many :user_scene
+
+### user_scene
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| scene  | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :scene
+

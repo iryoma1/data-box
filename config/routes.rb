@@ -8,5 +8,4 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  # post "/scene/new" => "scene#new"
 end

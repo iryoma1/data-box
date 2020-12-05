@@ -3,16 +3,18 @@ class ScenesController < ApplicationController
   end
 
   def new
-    # binding.pry
-    # @user = User.find(params[:user_id])
+    @user = User.find_by(id: params[:format])
     @scene = Scene.new
+
   end
 
   def create
     @scene = Scene.new(scene_params)
+    # binding.pry
     if @scene.save
       redirect_to root_path
     else
+      @user = User.find_by(id: params[:format])
       render :new
     end
   end
